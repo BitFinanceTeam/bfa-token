@@ -26,26 +26,6 @@ truffle
 
 ## Install
 
-```npm i```
-
-## Compile Contracts
-
-```truffle compile```
-
-## Deploy Contracts
-
-Set unix epoch for start and end time
-
-```truffle migrate```
-
-## Test
-
-run via npm script
-
-`npm run test`
-
-or
-
 install testrpc
 
 ```

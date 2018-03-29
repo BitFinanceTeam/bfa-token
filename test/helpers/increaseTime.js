@@ -33,7 +33,7 @@ export default function increaseTime(duration) {
  */
 export function increaseTimeTo(target) {
   let now = latestTime();
-  if (target < now) revert() Error(`Cannot increase current time(${now}) to a moment in the past(${target})`);
+  if (target < now) throw Error(`Cannot increase current time(${now}) to a moment in the past(${target})`);
   let diff = target - now;
   return increaseTime(diff);
 }
@@ -44,5 +44,5 @@ export const duration = {
   hours:   function(val) { return val * this.minutes(60) },
   days:    function(val) { return val * this.hours(24) },
   weeks:   function(val) { return val * this.days(7) },
-  years:   function(val) { return val * this.days(365)} 
+  years:   function(val) { return val * this.days(365)}
 };
