@@ -1,8 +1,10 @@
 ## BitFinance Access Token
 
+This is a repository of a crowdsale contract created for BFA Token sale written by StartupCraft Inc. to BitFinance ICO
+
 Investigation results: https://docs.google.com/document/d/1ySddONsecz_Dea0FLVIIdvLMh7pTMTifijtTBxvdzgA
 Security concerns: https://docs.google.com/document/d/1Yt_fvr-uJGD0D7WmUGbdjCYzJ2OAXPfqnT1FNDqz24Q
-How to Participate in Token Sale: https://blog.matryx.ai/matryx-public-token-sale-how-to-participate-tips-on-staying-safe-4270017df0f6
+How to Participate in Token Sale sample: https://blog.matryx.ai/matryx-public-token-sale-how-to-participate-tips-on-staying-safe-4270017df0f6
 ^ update with our own article
 
 TODO:
@@ -10,6 +12,7 @@ TODO:
 2. test on testnet and play via Mist Wallet
 3. analyse Solidity 0.4.13 - 0.4.21 versions
 4. decide on MultiSigWallet usage and test it if so
+5. rewrite participate guide
 
 ```
 Total Supply: 1,000,000,000 BFA
@@ -26,44 +29,37 @@ truffle
 
 ## Install
 
-```npm i```
-
-## Compile Contracts
-
-```truffle compile```
-
-## Deploy Contracts
-
-Set unix epoch for start and end time
-
-```truffle migrate```
-
-## Test
-
-run via npm script
-
-`npm run test`
-
-or
-
-install testrpc
+1. install testrpc
 
 ```
-npm install -g ethereumjs-testrpc
+yarn global add ganache-cli
 
 ```
 
-Run testrpc chain
+2. Run testrpc chain
 
 ex
 ```
 testrpc -b 1.5 --account="0xc7dcd9e96b41cb0f5d3d519550966fc36e9472f92be7d16af3638e600a48d588,2000000000000000000000000" --account="0xb6485e6830a5d9aff97fa9d799c16aa9e387a2eea684c4b7d2c9f656798e2710,15000000000000000000000000"
 ```
+3. Open separate project console tab and Run
 
-set test bool to true in /migrations/2_deploy_contracts.js
-run truffle tests
+```
+truffle compile && truffle migrate
+```
 
-```truffle test```
+4. Kill network connection to reset GAS limits
+
+```
+kill -9 $(lsof -ti :8545)
+```
+
+5. Set test bool to true in /migrations/2_deploy_contracts.js
+Run truffle tests
+
+```yarn run test```
+
+Author: Volodymyr Katanskyi ( https://www.startupcraft.io/ )
 
 Credits:
 TokenMarket ( https://tokenmarket.net )

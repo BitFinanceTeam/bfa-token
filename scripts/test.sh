@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# based on open zeppelin test start script 
+# based on open zeppelin test start script
 
 # Exit script as soon as a command fails.
 set -o errexit

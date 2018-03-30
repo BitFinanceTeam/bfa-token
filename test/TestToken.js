@@ -1,6 +1,5 @@
 'use strict';
 
-import expectrevert() from './helpers/expectrevert()';
 var MintableToken = artifacts.require('./BFAToken.sol');
 var MigrationTarget = artifacts.require('./TestMigrationTarget.sol');
 
@@ -15,20 +14,20 @@ contract('BFA Token', function(accounts) {
   it('should have correct vanity labels', async function() {
   	token = await MintableToken.new();
 
-    let name = await token.name.call()
-    let symbol = await token.symbol.call()
-    let decimals = await token.decimals.call()
+    let name = await token.name.call();
+    let symbol = await token.symbol.call();
+    let decimals = await token.decimals.call();
 
-    assert.equal(name, 'BitfinanceAccessToken')
-    assert.equal(symbol, 'BFA')
-    assert.equal(decimals, 18)
+    assert.equal(name, 'BitfinanceAccessToken');
+    assert.equal(symbol, 'BFA');
+    assert.equal(decimals, 18);
   });
 
   it('should start with a totalSupply of 0', async function() {
-    let totalSupply = await token.totalSupply();
+      let totalSupply = await token.totalSupply();
 
-    assert.equal(totalSupply, 0);
-  });
+      assert.equal(totalSupply, 0);
+    });
 
   it('should return mintingFinished false after construction', async function() {
     let mintingFinished = await token.mintingFinished();
@@ -36,7 +35,6 @@ contract('BFA Token', function(accounts) {
     assert.equal(mintingFinished, false);
   });
 
-  //TODO: retest
   it('should mint a given amount of tokens to a given address', async function() {
     const result = await token.mint(accounts[0], 100);
     assert.equal(result.logs[0].event, 'Mint');
