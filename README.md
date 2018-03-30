@@ -8,17 +8,14 @@ How to Participate in Token Sale sample: https://blog.matryx.ai/matryx-public-to
 ^ update with our own article
 
 TODO:
-1. update tests
-2. test on testnet and play via Mist Wallet
-3. analyse Solidity 0.4.13 - 0.4.21 versions
-4. decide on MultiSigWallet usage and test it if so
-5. rewrite participate guide
+1. analyse Solidity 0.4.13 - 0.4.21 versions
+2. Test MultiSigWallet + Token + Crowdsale in Mist and Rinkeby
 
 ```
 Total Supply: 1,000,000,000 BFA
 Name: BFAToken
 Symbol: BFA
-Ether Cap: 219,058 Eth
+Ether Cap: 219,058 Eth (at ETH = $456.5)
 ```
 
 ## Requirements
