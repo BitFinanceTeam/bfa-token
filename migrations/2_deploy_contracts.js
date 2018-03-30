@@ -6,10 +6,10 @@ var test = true;
 
 // test constructor args manually
 // TODO: update
-const _presaleStartTime = 1622454183
-const _preICOStartTime = 1622814207
-const _startTime = 1623534219
-const _endTime = 1624974237
+const _presaleStartTime = 1522458257
+const _preICOStartTime = 1522544664
+const _startTime = 1522631094
+const _endTime = 1522717500
 const _wallet = "0x01da6f5f5c89f3a83cc6bebb0eafc1f1e1c4a303"
 
 module.exports = function(deployer) {

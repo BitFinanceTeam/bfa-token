@@ -1,12 +1,12 @@
 {
-  "name": "salev1",
+  "name": "bitfinance_bfa_token",
   "version": "1.0.0",
   "description": "test sale structures",
   "main": "index.js",
   "scripts": {
     "test": "./scripts/test.sh"
   },
-  "author": "",
+  "author": "Volodymyr Katanskyi",
   "license": "ISC",
   "devDependencies": {
     "babel-polyfill": "^6.26.0",

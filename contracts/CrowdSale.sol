@@ -7,6 +7,7 @@ import './ownership/Ownable.sol';
 
 /**
  * @title Crowdsale
+ * @author Volodymyr Katanskyi
  * BitFinance Access Token crowdsale contract based on Open Zeppelin and TokenMarket
  * This crowdsale is modified to have a presale and pre-ICO time period
  * There are six tiers on pre-ICO stage of tokens purchased per wei based on msg value.
@@ -69,68 +70,53 @@ contract Crowdsale is Ownable, Haltable {
   // NOTE: $456.5 per ETH 03/27/2018
   uint256 public tierSixRate = 4805;
 
-  /*
-    The next 2 values will be considered on finalize step and ignored during
-    Token Sale
-  */
-  // Total amount of Equity Pre-Seed 10M
-  uint256 public equityPreSeedAmount = 10 * 10**24;
-  // Total amount of Equity Seed 17.5M
-  uint256 public preSeedAmount = 75 * 10**23;
-
   // Total amount to be sold in the presale 50M
-  uint256 public presaleCap = 50 * 10**24;
+  uint256 public presaleCap = 50 * 10**18;
 
   // Total amount to be sold in the tier 1 50M
-  uint256 public tierOneCap = 50 * 10**24;
+  uint256 public tierOneCap = 50 * 10**18;
 
   // Total amount to be sold in the tier 2 50M
-  uint256 public tierTwoCap = 50 * 10**24;
+  uint256 public tierTwoCap = 50 * 10**18;
 
   // Total amount to be sold in the tier 3 50M
-  uint256 public tierThreeCap = 50 * 10**24;
+  uint256 public tierThreeCap = 50 * 10**18;
 
   // Total amount to be sold in the tier 4 50M
-  uint256 public tierFourCap = 50 * 10**24;
+  uint256 public tierFourCap = 50 * 10**18;
 
   // Total amount to be sold in the tier 5 75M
-  uint256 public tierFiveCap = 75 * 10**24;
+  uint256 public tierFiveCap = 75 * 10**18;
 
   // Total amount to be sold in the tier 6 100M
-  uint256 public tierSixCap = 100 * 10**24;
+  uint256 public tierSixCap = 100 * 10**18;
 
   // Total amount to be sold in the tier 6 157.5M
-  uint256 public saleCap = 1575 * 10**23;
+  uint256 public saleCap = 1575 * 10**17;
 
   // Cumulative total for tier one cap 100M
-  uint256 public cumTierOneCap = 100 * 10**24;
+  uint256 public cumTierOneCap = 100 * 10**18;
 
   // Cumulative total for tier two cap 150M
-  uint256 public cumTierTwoCap = 150 * 10**24;
+  uint256 public cumTierTwoCap = 150 * 10**18;
 
   // Cumulative total for tier three cap 200M
-  uint256 public cumTierThreeCap = 200 * 10**24;
+  uint256 public cumTierThreeCap = 200 * 10**18;
 
   // Cumulative total for tier four cap 250M
-  uint256 public cumTierFourCap = 250 * 10**24;
+  uint256 public cumTierFourCap = 250 * 10**18;
 
   // Cumulative total for tier five cap 325M
-  uint256 public cumTierFiveCap = 325 * 10**24;
+  uint256 public cumTierFiveCap = 325 * 10**18;
 
   // Cumulative total for tier six cap 425M
-  uint256 public cumTierSixCap = 425 * 10**24;
+  uint256 public cumTierSixCap = 425 * 10**18;
 
   // Cumulative total for ICO cap 582.5M
-  uint256 public cumTierICOCap = 5825 * 10**23;
-
-  // Company Reserve, Founders, Offshore Affiliates etc. 200M
-  uint256 public companyShareCap = 200 * 10**24;
-
-  // Reserve 200M
-  uint256 public companyReserve = 200 * 10**24;
+  uint256 public cumTierICOCap = 5825 * 10**17;
 
   // Total amount to be sold in ether 1B
-  uint256 public cap = 1 * 10**27;
+  uint256 public cap = 1 * 10**21;
 
   // amount of raised money in wei
   uint256 public weiRaised;
@@ -285,19 +271,19 @@ contract Crowdsale is Ownable, Haltable {
     uint256 newWeiRaised = weiRaised.add(msg.value);
     uint256 rate = baseRate;
 
-    if (newWeiRaised < presaleCap) {
+    if (newWeiRaised <= presaleCap) {
       rate = presaleRate;
-    } else if (newWeiRaised < cumTierOneCap) {
+    } else if (newWeiRaised <= cumTierOneCap) {
       rate = tierOneRate;
-    } else if (newWeiRaised < cumTierTwoCap) {
+    } else if (newWeiRaised <= cumTierTwoCap) {
       rate = tierTwoRate;
-    } else if (newWeiRaised < cumTierThreeCap) {
+    } else if (newWeiRaised <= cumTierThreeCap) {
       rate = tierThreeRate;
-    } else if (newWeiRaised < cumTierFourCap) {
+    } else if (newWeiRaised <= cumTierFourCap) {
       rate = tierFourRate;
-    } else if (newWeiRaised < cumTierFiveCap) {
+    } else if (newWeiRaised <= cumTierFiveCap) {
       rate = tierFiveRate;
-    } else if (newWeiRaised < cumTierSixCap) {
+    } else if (newWeiRaised <= cumTierSixCap) {
       rate = tierSixRate;
     }
 
