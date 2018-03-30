@@ -116,7 +116,7 @@ contract Crowdsale is Ownable, Haltable {
   uint256 public cumTierICOCap = 5825 * 10**17;
 
   // Total amount to be sold in ether 1B
-  uint256 public cap = 1 * 10**25;
+  uint256 public cap = 1 * 10**27;
 
   // amount of raised money in wei
   uint256 public weiRaised;
