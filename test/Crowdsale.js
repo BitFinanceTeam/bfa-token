@@ -23,46 +23,46 @@ let preSaleBuyin
 
 
 // tier preSale purchase wei
-const nPresale = new BigNumber(9130*50*Math.pow(10, 18))
+const nPresale = new BigNumber(9130*50*Math.pow(10, 21))
 // tier I purchase wei
-const n1 = new BigNumber(7608*50*Math.pow(10, 18))
+const n1 = new BigNumber(7608*50*Math.pow(10, 21))
 // tier II purchase wei
-const n2 = new BigNumber(6521*50*Math.pow(10, 18))
+const n2 = new BigNumber(6521*50*Math.pow(10, 21))
 // tier III purchase wei
-const n3 = new BigNumber(5706*50*Math.pow(10, 18))
+const n3 = new BigNumber(5706*50*Math.pow(10, 21))
 // tier IV purchase wei
-const n4 = new BigNumber(5476*50*Math.pow(10, 18))
+const n4 = new BigNumber(5476*50*Math.pow(10, 21))
 // tier V purchase wei
-const n5 = new BigNumber(5072*75*Math.pow(10, 18))
+const n5 = new BigNumber(5072*75*Math.pow(10, 21))
 // tier VI purchase wei
-const n6 = new BigNumber(4805*100*Math.pow(10, 18))
+const n6 = new BigNumber(4805*100*Math.pow(10, 21))
 // tier VI purchase wei
-const nICO = new BigNumber(4565*1575*Math.pow(10, 17))
+const nICO = new BigNumber(4565*1575*Math.pow(10, 20))
 
 // tier preSale wei
-const nPresaleCap = new BigNumber(50*Math.pow(10, 18))
+const nPresaleCap = new BigNumber(50*Math.pow(10, 21))
 // tier I purchase wei Cap
-const n1Cap = nPresaleCap.plus(new BigNumber(50*Math.pow(10, 18)))
+const n1Cap = nPresaleCap.plus(new BigNumber(50*Math.pow(10, 21)))
 // tier II purchase wei Cap
-const n2Cap = n1Cap.plus(new BigNumber(50*Math.pow(10, 18)))
+const n2Cap = n1Cap.plus(new BigNumber(50*Math.pow(10, 21)))
 // tier III purchase wei Cap
-const n3Cap = n2Cap.plus(new BigNumber(50*Math.pow(10, 18)))
+const n3Cap = n2Cap.plus(new BigNumber(50*Math.pow(10, 21)))
 // tier IV purchase wei Cap
-const n4Cap = n3Cap.plus(new BigNumber(50*Math.pow(10, 18)))
+const n4Cap = n3Cap.plus(new BigNumber(50*Math.pow(10, 21)))
 // tier V purchase wei Cap
-const n5Cap = n4Cap.plus(new BigNumber(75*Math.pow(10, 18)))
+const n5Cap = n4Cap.plus(new BigNumber(75*Math.pow(10, 21)))
 // tier VI purchase wei Cap
-const n6Cap = n5Cap.plus(new BigNumber(100*Math.pow(10, 18)))
+const n6Cap = n5Cap.plus(new BigNumber(100*Math.pow(10, 21)))
 // ICO tier purchase wei Cap
-const nICOCap = n6Cap.plus(new BigNumber(1575*Math.pow(10, 17)))
+const nICOCap = n6Cap.plus(new BigNumber(1575*Math.pow(10, 20)))
 
 
 // regular sale purchase wei
-// const nBase = new BigNumber(1*Math.pow(10, 18))
+// const nBase = new BigNumber(1*Math.pow(10, 21))
 // // presale wei cap
-// const p = new BigNumber(809015*Math.pow(10, 17))
+// const p = new BigNumber(809015*Math.pow(10, 20))
 // sale wei cap
-// const t = new BigNumber(161803*Math.pow(10, 18))
+// const t = new BigNumber(161803*Math.pow(10, 21))
 
 // init args
 const _presaleStartTime = 1522458257
@@ -142,24 +142,24 @@ contract('TestCrowdSale', async (accounts) => {
   })
 
   it("can buy presale during allowed time", async function() {
-    await inst.buy({from: accounts[1], value: 49*Math.pow(10, 18)})
+    await inst.buy({from: accounts[1], value: 49*Math.pow(10, 21)})
     let raised = await inst.weiRaised.call()
     // assert weiRaised = 49 eth
-    assert.equal(raised.toNumber(), 49*Math.pow(10, 18), "presale purchase did not issue correct amount")
+    assert.equal(raised.toNumber(), 49*Math.pow(10, 21), "presale purchase did not issue correct amount")
     tSupply = await token.totalSupply.call()
     // assert total supply = 49 eth * 9130
-    assert.equal(tSupply.toNumber(), 49*Math.pow(10, 18)*9130, "halted wei presale purchase did not issue correct amount")
+    assert.equal(tSupply.toNumber(), 49*Math.pow(10, 21)*9130, "halted wei presale purchase did not issue correct amount")
 
     a1Balance = await token.balanceOf(accounts[1])
     // assert total = 49 eth * 9130
-    assert.equal(a1Balance.toNumber(), (49*Math.pow(10, 18)*9130), "49 eth presale purchase did not issue correct amount")
+    assert.equal(a1Balance.toNumber(), (49*Math.pow(10, 21)*9130), "49 eth presale purchase did not issue correct amount")
   })
 
   it("token cannot be transfered before Finalized", async function() {
-    await token.transfer(accounts[0], 49*Math.pow(10, 18)*9130, {from: accounts[1]})
+    await token.transfer(accounts[0], 49*Math.pow(10, 21)*9130, {from: accounts[1]})
     a1Balance = await token.balanceOf(accounts[1])
     // assert total 49 eth * 9130
-    assert.equal(a1Balance.toNumber(), (49*Math.pow(10, 18)*9130), "49 eth presale purchase did not issue correct amount")
+    assert.equal(a1Balance.toNumber(), (49*Math.pow(10, 21)*9130), "49 eth presale purchase did not issue correct amount")
   })
   //
   it("Only release agent can make token transferable", async function() {
@@ -173,21 +173,21 @@ contract('TestCrowdSale', async (accounts) => {
   })
 
   it("only owner can mint", async function() {
-    await token.mint(crowdsaleAddy, 50*Math.pow(10, 18), {from: accounts[0]})
+    await token.mint(crowdsaleAddy, 50*Math.pow(10, 21), {from: accounts[0]})
     tSupply = await token.totalSupply.call()
     // assert total supply = 49 eth * 9130, new amount didn't added instead of 99
-    assert.equal(tSupply.toNumber(), 49*Math.pow(10, 18)*9130, "direct minting purchase did not issue correct amount")
+    assert.equal(tSupply.toNumber(), 49*Math.pow(10, 21)*9130, "direct minting purchase did not issue correct amount")
   })
 
   it("can buy up to the presale cap", async function() {
     let raised = await inst.weiRaised.call()
-    // will be 1 * Math.pow(10, 18)
+    // will be 1 * Math.pow(10, 21)
     pt = nPresaleCap.minus(raised)
     await inst.buy({from: accounts[1], value: pt})
     raised = await inst.weiRaised.call()
     assert(raised.toString(10), nPresaleCap.toString(10))
 
-    preSaleBuyin = 49*Math.pow(10, 18)*9130
+    preSaleBuyin = 49*Math.pow(10, 21)*9130
 
     let bal = await token.balanceOf(accounts[1])
     assert(bal, new BigNumber(preSaleBuyin).plus(pt.mul(9130)))
@@ -204,7 +204,7 @@ contract('TestCrowdSale', async (accounts) => {
     let purchased = await token.balanceOf(accounts[1])
     // assert total = 50 eth * 9130
     var amount = web3.fromWei(purchased.toNumber())
-    assert.equal(amount, (50*9130), "over cap eth purchase did not issue correct amount")
+    assert.equal(amount, (50000*9130), "over cap eth purchase did not issue correct amount")
     //the amount bought on pre-sale
     // the amount as a difference between preSale purchase 20eth and preSale cap
     var test = pt
@@ -218,7 +218,7 @@ contract('TestCrowdSale', async (accounts) => {
     let afterPreICOStart = _preICOStartTime + duration.seconds(1)
     await increaseTimeTo(afterPreICOStart)
 
-    await inst.buy({from: accounts[0], value: 50*Math.pow(10, 18)})
+    await inst.buy({from: accounts[0], value: 50*Math.pow(10, 21)})
     let raised = await inst.weiRaised.call()
     // assert weiRaised = 1th + 49 eth + 50 eth
     assert.equal(raised.toNumber(), n1Cap.toString(10), "tier I preICO purchase did not issue correct amount")
@@ -230,7 +230,7 @@ contract('TestCrowdSale', async (accounts) => {
   })
 
   it("can buy preICO tier II purchase", async function() {
-    await inst.buy({from: accounts[0], value: 50*Math.pow(10, 18)})
+    await inst.buy({from: accounts[0], value: 50*Math.pow(10, 21)})
     let raised = await inst.weiRaised.call()
     // asset weiRaised = 50 eth + 50 eth + 50 eth
     assert.equal(raised.toString(10), n2Cap.toString(10), "tier II preICO purchase did not issue correct amount")
@@ -243,7 +243,7 @@ contract('TestCrowdSale', async (accounts) => {
   })
 
   it("can buy preICO tier III purchase", async function() {
-    await inst.buy({from: accounts[0], value: 50*Math.pow(10, 18)})
+    await inst.buy({from: accounts[0], value: 50*Math.pow(10, 21)})
     let raised = await inst.weiRaised.call()
     // asset weiRaised = 50 eth + 50 eth + 50 eth + 50eth
     assert.equal(raised.toString(10), n3Cap.toString(10), "tier III preICO purchase did not issue correct amount")
@@ -256,7 +256,7 @@ contract('TestCrowdSale', async (accounts) => {
   })
 
   it("can buy preICO tier IV purchase", async function() {
-    await inst.buy({from: accounts[0], value: 50*Math.pow(10, 18)})
+    await inst.buy({from: accounts[0], value: 50*Math.pow(10, 21)})
     let raised = await inst.weiRaised.call()
     // asset weiRaised = 50 eth + 50 eth + 50 eth + 50 eth + 50 eth
     assert.equal(raised.toString(10), n4Cap.toString(10), "tier IV preICO purchase did not issue correct amount")
@@ -269,7 +269,7 @@ contract('TestCrowdSale', async (accounts) => {
   })
 
   it("can buy preICO tier V purchase", async function() {
-    await inst.buy({from: accounts[0], value: 75*Math.pow(10, 18)})
+    await inst.buy({from: accounts[0], value: 75*Math.pow(10, 21)})
     let raised = await inst.weiRaised.call()
     // asset weiRaised = 50 eth + 50 eth + 50 eth + 50 eth + 50 eth + 75 eth
     assert.equal(raised.toString(10), n5Cap.toString(10), "tier V preICO purchase did not issue correct amount")
@@ -282,28 +282,28 @@ contract('TestCrowdSale', async (accounts) => {
   })
 
   it("can buy preICO tier VI purchase", async function() {
-    await inst.buy({from: accounts[0], value: 98*Math.pow(10, 18)})
+    await inst.buy({from: accounts[0], value: 98*Math.pow(10, 21)})
     let raised = await inst.weiRaised.call()
     // asset weiRaised = 50 eth + 50 eth + 50 eth + 50 eth + 50 eth + 75 eth + 98 eth
-    assert.equal(raised.toString(10), n6Cap.minus(new BigNumber(2*Math.pow(10, 18))).toString(10), "tier VI preICO purchase did not issue correct amount")
+    assert.equal(raised.toString(10), n6Cap.minus(new BigNumber(2*Math.pow(10, 21))).toString(10), "tier VI preICO purchase did not issue correct amount")
     //
     tSupply = await token.totalSupply.call()
     a0Balance = await token.balanceOf(accounts[0])
     // assert total = 50 eth * 9130 + 50 eth * 4565 + 50 eth * 6521 + 50 eth * 5706 + 50 eth * 5476 + 75 * 5072 + 98 * 4805
-    var sum = nPresale.plus(n1).plus(n2).plus(n3).plus(n4).plus(n5).plus(n6).minus(new BigNumber(2*Math.pow(10, 18)*4805))
+    var sum = nPresale.plus(n1).plus(n2).plus(n3).plus(n4).plus(n5).plus(n6).minus(new BigNumber(2*Math.pow(10, 21)*4805))
     assert.equal(tSupply.toString(10), sum.toString(10), "98 eth purchase did not issue correct amount")
   })
 
   it("can buy up to the preICO cap", async function() {
     let raised = await inst.weiRaised.call()
-    // will be 2 * Math.pow(10, 18)
+    // will be 2 * Math.pow(10, 21)
     pt = n6Cap.minus(raised)
     await inst.buy({from: accounts[1], value: pt})
     raised = await inst.weiRaised.call()
     assert(raised.toString(10), n6Cap.toString(10))
 
     let bal = await token.balanceOf(accounts[1])
-    assert(bal, n6Cap.minus(2*Math.pow(10, 18)).plus(pt.mul(4805)))
+    assert(bal, n6Cap.minus(2*Math.pow(10, 21)).plus(pt.mul(4805)))
   })
 
   it("can't buy if preICO cap is reached", async function() {
@@ -319,11 +319,11 @@ contract('TestCrowdSale', async (accounts) => {
     var amount = web3.fromWei(purchased.toNumber())
     // the delta that is preserved on account[1], from preSale delta is 50*9130 and from preICO
     // last 2 tokens from tier 6 = 2*4805
-    assert.equal(amount, (50*9130) + (2*4805), "over cap eth purchase did not issue correct amount")
+    assert.equal(amount, (50000*9130) + (2000*4805), "over cap eth purchase did not issue correct amount")
     // 2 eth
     var test = pt
     test = test.mul(4805) // remaining 2eth of tier 6 cap
-    test = test.plus(new BigNumber(98*Math.pow(10, 18)*4805)) // rest lf tier 6 cap
+    test = test.plus(new BigNumber(98*Math.pow(10, 21)*4805)) // rest lf tier 6 cap
     test = test.plus(nPresale).plus(n1).plus(n2).plus(n3).plus(n4).plus(n5) // add the prev totalSupply
     // assert total tokens = 98 eth * 4805 + 2 eth * 4805 + remaining
     assert.equal(tSupply.toString(10), test.toString(10), "totalSupply is incorrect")
@@ -333,28 +333,28 @@ contract('TestCrowdSale', async (accounts) => {
     let afterICOStart = _startTime + duration.seconds(1)
     await increaseTimeTo(afterICOStart)
 
-    await inst.buy({from: accounts[0], value: 1560*Math.pow(10, 17)})//-15*Math.pow(10, 17) from cap
+    await inst.buy({from: accounts[0], value: 1560*Math.pow(10, 20)})//-15*Math.pow(10, 20) from cap
     let raised = await inst.weiRaised.call()
     // asset weiRaised = 50 eth + 50 eth + 50 eth + 50 eth + 50 eth + 75 eth + 100 eth + 160 eth
-    assert.equal(raised.toString(10), nICOCap.minus(new BigNumber(15*Math.pow(10, 17))).toString(10), "tier ICO purchase did not issue correct amount")
+    assert.equal(raised.toString(10), nICOCap.minus(new BigNumber(15*Math.pow(10, 20))).toString(10), "tier ICO purchase did not issue correct amount")
     //
     tSupply = await token.totalSupply.call()
     a0Balance = await token.balanceOf(accounts[0])
     // assert total = 50 eth * 9130 + 50 eth * 4565 + 50 eth * 6521 + 50 eth * 5706 + 50 eth * 5476 + 75 * 5072 + 100 * 4805 + 160 eth * 4565
-    var sum = nPresale.plus(n1).plus(n2).plus(n3).plus(n4).plus(n5).plus(n6).plus(nICO).minus(new BigNumber(15*Math.pow(10, 17)*4565))
+    var sum = nPresale.plus(n1).plus(n2).plus(n3).plus(n4).plus(n5).plus(n6).plus(nICO).minus(new BigNumber(15*Math.pow(10, 20)*4565))
     assert.equal(tSupply.toString(10), sum.toString(10), "156 eth purchase did not issue correct amount")
   })
 
   it("can buy up to the ICO cap", async function() {
     let raised = await inst.weiRaised.call()
-    // will be 15 * Math.pow(10, 17)
+    // will be 15 * Math.pow(10, 20)
     pt = nICOCap.minus(raised)
     await inst.buy({from: accounts[1], value: pt})
     raised = await inst.weiRaised.call()
     assert(raised.toString(10), nICOCap.toString(10))
 
     let bal = await token.balanceOf(accounts[1])
-    assert(bal, nICOCap.minus(15*Math.pow(10, 17)).plus(pt.mul(4565)))
+    assert(bal, nICOCap.minus(15*Math.pow(10, 20)).plus(pt.mul(4565)))
   })
 
   it("can't buy if ICO cap is reached", async function() {
@@ -367,13 +367,13 @@ contract('TestCrowdSale', async (accounts) => {
     tSupply = await token.totalSupply.call()
     let purchased = await token.balanceOf(accounts[1])
     var amount = web3.fromWei(purchased.toNumber())
-    // the delta that is preserved on account[1], from preSale delta is 50*9130, from preICO and ICO (15**17)
+    // the delta that is preserved on account[1], from preSale delta is 50*9130, from preICO and ICO (15**20)
     // last 1.5 tokens from ICO = 1.5*4565
-    assert.equal(amount, (50*9130) + (2*4805) + (1.5*4565), "over cap eth purchase did not issue correct amount")
+    assert.equal(amount, (50000*9130) + (2000*4805) + (1500*4565), "over cap eth purchase did not issue correct amount")
     // 1.5 eth
     var test = pt
     test = test.mul(4565) // remaining 2eth of tier 6 cap
-    test = test.plus(new BigNumber(1560*Math.pow(10, 17)*4565)) // rest lf tier 6 cap
+    test = test.plus(new BigNumber(1560*Math.pow(10, 20)*4565)) // rest lf tier 6 cap
     test = test.plus(nPresale).plus(n1).plus(n2).plus(n3).plus(n4).plus(n5).plus(n6) // add the prev totalSupply
     // assert total tokens = 98 eth * 4805 + 2 eth * 4805 + remaining
     assert.equal(tSupply.toString(10), test.toString(10), "totalSupply is incorrect")
@@ -397,7 +397,7 @@ contract('TestCrowdSale', async (accounts) => {
     let purchased = await token.balanceOf(accounts[0])
     var amount = web3.fromWei(purchased.toNumber())
 
-    assert.equal(amount, (50*7608)+(50*6521)+(50*5706)+(50*5476)+(75*5072)+(98*4805)+(156*4565), "after time end did not issue correct amount")
+    assert.equal(amount, (50000*7608)+(50000*6521)+(50000*5706)+(50000*5476)+(75000*5072)+(98000*4805)+(156000*4565), "after time end did not issue correct amount")
   })
 
   it("owner can finalize", function() {
@@ -408,10 +408,8 @@ contract('TestCrowdSale', async (accounts) => {
       return token.totalSupply.call()
     }).then(function(total) {
       // assert final supply equals pi
-      assert.equal(web3.fromWei(total.toNumber()), 10000000, "Finalize did not issue correct tokens")
+      assert.equal(web3.fromWei(total.toNumber()), 10000000000, "Finalize did not issue correct tokens")
       return token.mintingFinished.call()
-      // 3301937.5
-      // 5825000
     }).then(function(doneMinting) {
       assert.equal(doneMinting, true, "finished minting was not set correctly")
       return token.owner.call()
@@ -420,8 +418,8 @@ contract('TestCrowdSale', async (accounts) => {
       assert.equal(owner, accounts[0], "ownership was not transferred correctly")
       return token.balanceOf(accounts[0])
     }).then(function(bal) {
-      // assert that the owner remaining ~40% of tokens were issued in finalization.
-      assert(web3.fromWei(bal.toNumber()), 107705112.5)
+      // assert that the owner remaining ~42.75% of tokens were issued in finalization.
+      assert(web3.fromWei(bal.toNumber()), 427500000)
     })
   })
 

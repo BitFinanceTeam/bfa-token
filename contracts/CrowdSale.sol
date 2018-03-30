@@ -71,52 +71,52 @@ contract Crowdsale is Ownable, Haltable {
   uint256 public tierSixRate = 4805;
 
   // Total amount to be sold in the presale 50M
-  uint256 public presaleCap = 50 * 10**18;
+  uint256 public presaleCap = 50 * 10**21;
 
   // Total amount to be sold in the tier 1 50M
-  uint256 public tierOneCap = 50 * 10**18;
+  uint256 public tierOneCap = 50 * 10**21;
 
   // Total amount to be sold in the tier 2 50M
-  uint256 public tierTwoCap = 50 * 10**18;
+  uint256 public tierTwoCap = 50 * 10**21;
 
   // Total amount to be sold in the tier 3 50M
-  uint256 public tierThreeCap = 50 * 10**18;
+  uint256 public tierThreeCap = 50 * 10**21;
 
   // Total amount to be sold in the tier 4 50M
-  uint256 public tierFourCap = 50 * 10**18;
+  uint256 public tierFourCap = 50 * 10**21;
 
   // Total amount to be sold in the tier 5 75M
-  uint256 public tierFiveCap = 75 * 10**18;
+  uint256 public tierFiveCap = 75 * 10**21;
 
   // Total amount to be sold in the tier 6 100M
-  uint256 public tierSixCap = 100 * 10**18;
+  uint256 public tierSixCap = 100 * 10**21;
 
   // Total amount to be sold in the tier 6 157.5M
-  uint256 public saleCap = 1575 * 10**17;
+  uint256 public saleCap = 1575 * 10**20;
 
   // Cumulative total for tier one cap 100M
-  uint256 public cumTierOneCap = 100 * 10**18;
+  uint256 public cumTierOneCap = 100 * 10**21;
 
   // Cumulative total for tier two cap 150M
-  uint256 public cumTierTwoCap = 150 * 10**18;
+  uint256 public cumTierTwoCap = 150 * 10**21;
 
   // Cumulative total for tier three cap 200M
-  uint256 public cumTierThreeCap = 200 * 10**18;
+  uint256 public cumTierThreeCap = 200 * 10**21;
 
   // Cumulative total for tier four cap 250M
-  uint256 public cumTierFourCap = 250 * 10**18;
+  uint256 public cumTierFourCap = 250 * 10**21;
 
   // Cumulative total for tier five cap 325M
-  uint256 public cumTierFiveCap = 325 * 10**18;
+  uint256 public cumTierFiveCap = 325 * 10**21;
 
   // Cumulative total for tier six cap 425M
-  uint256 public cumTierSixCap = 425 * 10**18;
+  uint256 public cumTierSixCap = 425 * 10**21;
 
   // Cumulative total for ICO cap 582.5M
-  uint256 public cumTierICOCap = 5825 * 10**17;
+  uint256 public cumTierICOCap = 5825 * 10**20;
 
   // Total amount to be sold in ether 1B
-  uint256 public cap = 1 * 10**27;
+  uint256 public cap = 1 * 10**28;
 
   // amount of raised money in wei
   uint256 public weiRaised;
