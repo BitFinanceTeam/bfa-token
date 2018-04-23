@@ -1,15 +1,19 @@
 ## BitFinance Access Token
 
-This is a repository of a crowdsale contract created for BFA Token sale written by StartupCraft Inc. to BitFinance ICO
+This is a repository of a crowdsale contract created for BitFinance Token sale written by StartupCraft Inc. for BitFinance ICO
 
-Investigation results: https://docs.google.com/document/d/1ySddONsecz_Dea0FLVIIdvLMh7pTMTifijtTBxvdzgA
-Security concerns: https://docs.google.com/document/d/1Yt_fvr-uJGD0D7WmUGbdjCYzJ2OAXPfqnT1FNDqz24Q
-How to Participate in Token Sale sample: https://blog.matryx.ai/matryx-public-token-sale-how-to-participate-tips-on-staying-safe-4270017df0f6
-^ update with our own article
+## Resources:
+1. OnePager: http://www.bitfinance.com/files/One-Pager.pdf
+2. WhitePaper: http://www.bitfinance.com/files/One-Pager.pdf
+3. Investigation results: https://docs.google.com/document/d/1Yt_fvr-uJGD0D7WmUGbdjCYzJ2OAXPfqnT1FNDqz24Q
+4. Security concerns: https://docs.google.com/document/d/12iR6RybAS3-x-cInM5cVrThj23fgEr_2ZghivWN--dc/edit#heading=h.y1impqo3uqnt
 
 TODO:
 1. analyse Solidity 0.4.13 - 0.4.21 versions
 2. Test MultiSigWallet + Token + Crowdsale in Mist and Rinkeby
+3.  update with our own article
+"How to Participate in Token Sale sample: https://blog.matryx.ai/matryx-public-token-sale-how-to-participate-tips-on-staying-safe-4270017df0f6
+""
 
 ```
 Total Supply: 1,000,000,000 BFA
